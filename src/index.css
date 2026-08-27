@@ -34,24 +34,47 @@ body {
   font-size: var(--text-base);
   line-height: 1.6;
   color-scheme: light;
-  /* 纸面涂鸦层：星 / 圈 / 十字 / 波浪 / 闪电 / 螺旋 / 箭头 / 爱心 / 星芒 */
+  /* 纸面涂鸦层：星 / 圈 / 十字 / 波浪 / 闪电 / 螺旋 / 箭头 / 爱心 / 星芒 / 纸飞机 / 音符 / 小花 / 云 / 对话框 / 太阳 */
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z' fill='%23f5a623' fill-opacity='0.35' stroke='%23282828' stroke-opacity='0.2'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Ccircle cx='17' cy='17' r='13' fill='none' stroke='%23e0508f' stroke-opacity='0.3' stroke-width='2.5'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'%3E%3Cpath d='M11 3 V19 M3 11 H19' stroke='%235a8fd4' stroke-opacity='0.35' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='14' viewBox='0 0 60 14'%3E%3Cpath d='M2 7 Q 9 1 16 7 T 30 7 T 44 7 T 58 7' fill='none' stroke='%235a8fd4' stroke-opacity='0.3' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='30' viewBox='0 0 24 28'%3E%3Cpath d='M14 2 L5 16 L11 16 L9 26 L19 11 L13 11 Z' fill='none' stroke='%23f5a623' stroke-opacity='0.4' stroke-width='2.2' stroke-linejoin='round'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath d='M15 15 m0 -2 a2 2 0 1 1 -2 2 a4.5 4.5 0 1 1 4.5 -4.5 a8 8 0 1 1 -8 8 a12 12 0 1 1 12 -12' fill='none' stroke='%23e0508f' stroke-opacity='0.28' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='38' height='22' viewBox='0 0 38 22'%3E%3Cpath d='M3 11 H30 M24 4 L32 11 L24 18' fill='none' stroke='%235a8fd4' stroke-opacity='0.32' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='24' viewBox='0 0 26 24'%3E%3Cpath d='M13 21 C5 15 2 10 4 6 C6 2 11 2 13 6 C15 2 20 2 22 6 C24 10 21 15 13 21 Z' fill='none' stroke='%23d4556a' stroke-opacity='0.3' stroke-width='2.2' stroke-linejoin='round'/%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 V22 M2 12 H22 M5 5 L19 19 M19 5 L5 19' stroke='%23e0508f' stroke-opacity='0.3' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"),
-    /* 淡点阵纸纹（最底层，repeat 铺满） */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23282828' fill-opacity='0.05'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z' fill='%23f5a623' fill-opacity='0.6' stroke='%23282828' stroke-opacity='0.35'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Ccircle cx='17' cy='17' r='13' fill='none' stroke='%23e0508f' stroke-opacity='0.55' stroke-width='2.5'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'%3E%3Cpath d='M11 3 V19 M3 11 H19' stroke='%235a8fd4' stroke-opacity='0.6' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='14' viewBox='0 0 60 14'%3E%3Cpath d='M2 7 Q 9 1 16 7 T 30 7 T 44 7 T 58 7' fill='none' stroke='%235a8fd4' stroke-opacity='0.55' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='30' viewBox='0 0 24 28'%3E%3Cpath d='M14 2 L5 16 L11 16 L9 26 L19 11 L13 11 Z' fill='none' stroke='%23f5a623' stroke-opacity='0.65' stroke-width='2.2' stroke-linejoin='round'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath d='M15 15 m0 -2 a2 2 0 1 1 -2 2 a4.5 4.5 0 1 1 4.5 -4.5 a8 8 0 1 1 -8 8 a12 12 0 1 1 12 -12' fill='none' stroke='%23e0508f' stroke-opacity='0.5' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='38' height='22' viewBox='0 0 38 22'%3E%3Cpath d='M3 11 H30 M24 4 L32 11 L24 18' fill='none' stroke='%235a8fd4' stroke-opacity='0.55' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='24' viewBox='0 0 26 24'%3E%3Cpath d='M13 21 C5 15 2 10 4 6 C6 2 11 2 13 6 C15 2 20 2 22 6 C24 10 21 15 13 21 Z' fill='none' stroke='%23d4556a' stroke-opacity='0.55' stroke-width='2.2' stroke-linejoin='round'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 V22 M2 12 H22 M5 5 L19 19 M19 5 L5 19' stroke='%23e0508f' stroke-opacity='0.55' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"),
+    /* 纸飞机 */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Cpath d='M4 15 L30 6 L21 29 L16 20 Z' fill='none' stroke='%235a8fd4' stroke-opacity='0.55' stroke-width='2.2' stroke-linejoin='round'/%3E%3Cpath d='M16 20 L30 6' fill='none' stroke='%235a8fd4' stroke-opacity='0.55' stroke-width='2.2' stroke-linejoin='round'/%3E%3C/svg%3E"),
+    /* 音符 */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='32' viewBox='0 0 26 32'%3E%3Cpath d='M10 25 V7 L21 4 V21' fill='none' stroke='%23e0508f' stroke-opacity='0.55' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cellipse cx='7' cy='25' rx='3.4' ry='2.6' fill='%23e0508f' fill-opacity='0.55'/%3E%3Cellipse cx='18' cy='21' rx='3.4' ry='2.6' fill='%23e0508f' fill-opacity='0.55'/%3E%3C/svg%3E"),
+    /* 小花：五瓣 + 圆心 */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath d='M15 5 C17 9 17 11 15 13 C13 11 13 9 15 5 Z M23.7 11 C21 13 19 13.7 16.9 13.2 C18.5 10.9 21 10.2 23.7 11 Z M21.7 22.3 C19.9 19.9 18.8 18.3 19 16.1 C21.5 17.4 22.4 19.9 21.7 22.3 Z M8.3 22.3 C7.6 19.9 8.5 17.4 11 16.1 C11.2 18.3 10.1 19.9 8.3 22.3 Z M6.3 11 C9 10.2 11.5 10.9 13.1 13.2 C11 13.7 9 13 6.3 11 Z' fill='%23f5a623' fill-opacity='0.6'/%3E%3Ccircle cx='15' cy='15' r='2.4' fill='none' stroke='%23f5a623' stroke-opacity='0.65' stroke-width='2'/%3E%3C/svg%3E"),
+    /* 云朵 */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='26' viewBox='0 0 46 26'%3E%3Cpath d='M11 20 A6 6 0 0 1 11 8 A8 8 0 0 1 26 5 A7 7 0 0 1 38 11 A5.5 5.5 0 0 1 37 20 Z' fill='none' stroke='%235a8fd4' stroke-opacity='0.5' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"),
+    /* 对话气泡 + 感叹号 */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='28' viewBox='0 0 30 28'%3E%3Cpath d='M4 4 H26 A2 2 0 0 1 28 6 V17 A2 2 0 0 1 26 19 H14 L8 25 V19 H4 A2 2 0 0 1 2 17 V6 A2 2 0 0 1 4 4 Z' fill='none' stroke='%23d4556a' stroke-opacity='0.55' stroke-width='2.2' stroke-linejoin='round'/%3E%3Cpath d='M15 8 V13' stroke='%23d4556a' stroke-opacity='0.6' stroke-width='2.4' stroke-linecap='round'/%3E%3Ccircle cx='15' cy='16.4' r='1.1' fill='%23d4556a' fill-opacity='0.6'/%3E%3C/svg%3E"),
+    /* 太阳：圆 + 放射线 */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Ccircle cx='17' cy='17' r='5.5' fill='none' stroke='%23f5a623' stroke-opacity='0.6' stroke-width='2.2'/%3E%3Cpath d='M17 3 V7 M17 27 V31 M3 17 H7 M27 17 H31 M7.5 7.5 L10.3 10.3 M23.7 23.7 L26.5 26.5 M26.5 7.5 L23.7 10.3 M10.3 23.7 L7.5 26.5' stroke='%23f5a623' stroke-opacity='0.6' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E"),
+    /* 画纸纹理 · 高频颗粒（纸纤维感，feTurbulence fractalNoise，repeat 铺满） */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.5' intercept='-0.08'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E"),
+    /* 画纸纹理 · 低频云斑（水彩纸棉絮感，baseFrequency 0.01，repeat 铺满） */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.01' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.3' intercept='-0.06'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='420' height='420' filter='url(%23c)'/%3E%3C/svg%3E");
   background-position:
     92% 10%, 5% 80%, 90% 85%, 6% 14%,
     14% 32%, 84% 60%, 78% 26%, 10% 58%, 68% 88%,
-    0 0;
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+    30% 6%, 60% 94%, 24% 44%, 96% 40%, 3% 40%, 70% 10%,
+    0 0, 0 0;
+  /* 涂鸦放大约 1.8 倍更醒目；纸纹层按原始尺寸平铺 */
+  background-size:
+    52px, 62px, 40px, 110px 26px,
+    48px 55px, 54px, 70px 40px, 48px 44px, 44px,
+    62px, 48px 60px, 56px, 82px 46px, 54px 50px, 62px,
+    240px, 420px;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+    no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+    repeat, repeat;
   background-attachment: fixed;
 }
 @media (prefers-reduced-motion: reduce) {
