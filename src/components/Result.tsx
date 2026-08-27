@@ -18,7 +18,7 @@ export function Result({ result, scale, onRetest, onSwitchScale }: ResultProps) 
   return (
     <main className="screen result">
       <header className="result-head">
-        <div className="result-code">{formatTypeCode(result.typeCode)}</div>
+        <div className="result-code"><span>{formatTypeCode(result.typeCode)}</span></div>
         <div className="result-name">{result.typeName}</div>
       </header>
 

@@ -180,21 +180,131 @@ body {
 
 /* Result 结果屏 */
 .result-head { text-align: center; margin-bottom: var(--space-2); }
+/* 类型码贴纸徽章:亮纸面 + 深色虚线描边 + 硬阴影,像随手贴上的贴纸 */
 .result-code {
-  font-size: var(--text-hero); font-weight: 700; letter-spacing: 0.05em;
-  color: var(--color-accent); text-shadow: 0 0 48px oklch(62% 0.19 262 / 0.45);
+  display: flex; justify-content: center;
 }
-.result-name { font-size: var(--text-lg); color: var(--color-text-soft); margin-top: var(--space-1); }
+.result-code > span {
+  position: relative;
+  display: inline-block;
+  font-size: var(--text-hero); font-weight: 700; letter-spacing: 0.05em;
+  color: var(--color-bg);
+  background: oklch(95% 0.01 260);
+  border: 2.5px dashed oklch(17% 0.025 265);
+  border-radius: 24px;
+  padding: 0.15em 0.6em;
+  rotate: -2deg;
+  box-shadow: 0 6px 0 oklch(0% 0 0 / 0.35);
+  animation: sticker-pop 300ms var(--ease-out) backwards;
+}
+/* 左上角黄色星星贴纸(复用首页星星) */
+.result-code > span::before {
+  content: '';
+  position: absolute; top: -14px; left: -12px;
+  width: 22px; height: 22px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z' fill='%23f5c542'/%3E%3C/svg%3E") no-repeat center / contain;
+  rotate: -12deg;
+  pointer-events: none;
+}
+/* 右下角粉色小圆圈 */
+.result-code > span::after {
+  content: '';
+  position: absolute; bottom: -12px; right: -14px;
+  width: 16px; height: 16px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'%3E%3Ccircle cx='11' cy='11' r='8' fill='none' stroke='%23e879b9' stroke-width='3'/%3E%3C/svg%3E") no-repeat center / contain;
+  pointer-events: none;
+}
+/* 徽章进场:缩小歪斜 → 摆正落位 */
+@keyframes sticker-pop {
+  from { opacity: 0; scale: 0.9; rotate: -5deg; }
+  to   { opacity: 1; scale: 1;    rotate: -2deg; }
+}
+.result-name {
+  font-size: var(--text-lg); color: var(--color-text-soft); margin-top: var(--space-1);
+}
+/* 手绘波浪下划线,复用首页波浪 SVG */
+.result-name::after {
+  content: '';
+  display: block;
+  width: min(180px, 45%);
+  height: 10px;
+  margin: 0.4rem auto 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='12' viewBox='0 0 120 12'%3E%3Cpath d='M3 8 Q 12 2 21 8 T 39 8 T 57 8 T 75 8 T 93 8 T 111 8' fill='none' stroke='%237c9bff' stroke-opacity='0.85' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / contain;
+}
 .result-dims { display: grid; gap: var(--space-2); margin: var(--space-3) 0; }
 .dim-row { display: grid; grid-template-columns: 3em 1fr auto; align-items: center; gap: var(--space-1); }
 .dim-labels { display: flex; justify-content: space-between; font-weight: 600; color: var(--color-text-soft); }
-.dim-bar { position: relative; height: 10px; background: oklch(95% 0.01 260 / 0.12); border-radius: 999px; overflow: hidden; }
-.dim-bar-mid { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: oklch(95% 0.01 260 / 0.3); }
-.dim-bar-fill { height: 100%; background: var(--color-accent); transform-origin: left; transition: transform 500ms var(--ease-out); }
+/* 维度条手绘化:两端实心圆点像图钉,中线手绘竖线,填充条蜡笔质感 */
+.dim-bar {
+  position: relative; height: 10px;
+  background: oklch(95% 0.01 260 / 0.12);
+  border-radius: 999px;
+}
+/* 两端图钉圆点 */
+.dim-bar::before, .dim-bar::after {
+  content: '';
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--border-strong);
+  z-index: 1;
+}
+.dim-bar::before { left: -1px; }
+.dim-bar::after  { right: -1px; }
+/* 手绘感中线:弯曲短竖线纵向平铺 */
+.dim-bar-mid {
+  position: absolute; left: 50%; top: -3px; bottom: -3px; width: 5px;
+  transform: translateX(-50%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='16' viewBox='0 0 5 16'%3E%3Cpath d='M2.5 1 Q 1.2 4.5 2.5 8 Q 3.8 11.5 2.5 15' fill='none' stroke='%23f5f5f7' stroke-opacity='0.45' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") repeat-y center / 5px 16px;
+}
+/* 蜡笔质感填充:主色上叠横向颗粒纹理,右端圆左端平(笔触) */
+.dim-bar-fill {
+  height: 100%;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='10' viewBox='0 0 8 10'%3E%3Cpath d='M0 3 H8 M0 7 H8' stroke='%23ffffff' stroke-opacity='0.18' stroke-width='1.5'/%3E%3C/svg%3E") repeat left center / 8px 10px,
+    var(--color-accent);
+  border-radius: 2px 999px 999px 2px;
+  transform-origin: left;
+  transition: transform 500ms var(--ease-out);
+}
 .dim-bar-fill-neutral { background: var(--color-accent-2); }
 .dim-pct { font-variant-numeric: tabular-nums; color: var(--color-text-soft); white-space: nowrap; }
 .result-detail { margin: var(--space-2) 0; }
-.result-summary { margin: 0 0 var(--space-2); line-height: 1.7; }
-.result-traits { margin: 0; padding-left: 1.2em; display: grid; gap: var(--space-1); color: var(--color-text-soft); }
+.result-summary {
+  margin: 0 0 var(--space-2); line-height: 1.7;
+  position: relative; padding-left: 1.1rem;
+}
+/* 左缘黄色纸胶带,微旋转 */
+.result-summary::before {
+  content: '';
+  position: absolute; left: 0; top: 0.3em; bottom: 0.3em;
+  width: 4px; border-radius: 2px;
+  background: var(--color-doodle-yellow);
+  rotate: 2deg; opacity: 0.85;
+}
+/* 特质列表 → 散落的标签贴纸:三色交替底 + 交替歪斜 + 实虚线交替 */
+.result-traits {
+  margin: 0; padding: 0; list-style: none;
+  display: flex; flex-wrap: wrap; gap: var(--space-1);
+}
+.result-traits li {
+  padding: 0.3em 0.9em; border-radius: 12px;
+  font-size: 14px; color: var(--color-text);
+  border: 1.5px solid var(--border-strong);
+  animation: tag-in 300ms var(--ease-out) backwards;
+}
+.result-traits li:nth-child(3n+1) { background: oklch(85% 0.14 95 / 0.2);  border-style: solid;  rotate: -1.5deg; }
+.result-traits li:nth-child(3n+2) { background: oklch(72% 0.15 340 / 0.2); border-style: dashed; rotate: 1.2deg; }
+.result-traits li:nth-child(3n)   { background: oklch(62% 0.19 262 / 0.2); border-style: solid;  rotate: -0.8deg; }
+/* 依次淡入 stagger 50ms(覆盖前 6 个,再多按 3n 循环取 0 延迟) */
+.result-traits li:nth-child(1) { animation-delay: 0ms; }
+.result-traits li:nth-child(2) { animation-delay: 50ms; }
+.result-traits li:nth-child(3) { animation-delay: 100ms; }
+.result-traits li:nth-child(4) { animation-delay: 150ms; }
+.result-traits li:nth-child(5) { animation-delay: 200ms; }
+.result-traits li:nth-child(6) { animation-delay: 250ms; }
+@keyframes tag-in {
+  from { opacity: 0; scale: 0.85; }
+  to   { opacity: 1; scale: 1; }
+}
 .result-actions { display: flex; gap: var(--space-1); margin-top: var(--space-3); justify-content: center; }
 @media (min-width: 1024px) { .result-dims { grid-template-columns: 1fr 1fr; } }
