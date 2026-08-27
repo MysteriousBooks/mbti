@@ -3,7 +3,7 @@ import { Button } from './components/ui/Button'
 import { ScaleSelect } from './components/ScaleSelect'
 import { Quiz } from './components/Quiz'
 import { Result } from './components/Result'
-import { loadScaleById } from './lib/loadScale'
+import { loadScaleById, SCALE_LIST } from './lib/loadScale'
 import { score } from './lib/scoring'
 import type { Scale } from './data/schemas'
 
@@ -52,8 +52,11 @@ export function App() {
           setPhase('select')
         }}
         onSwitchScale={() => {
+          // 切到量表列表中的下一套（循环），不依赖具体量表数量
+          const ids = SCALE_LIST.map(s => s.id)
+          const cur = ids.indexOf(scaleId ?? '')
           setAnswers({})
-          setScaleId(scaleId === 'classic' ? 'plus' : 'classic')
+          setScaleId(ids[(cur + 1) % ids.length])
           setPhase('quiz')
         }}
       />

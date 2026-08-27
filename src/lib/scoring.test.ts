@@ -125,9 +125,13 @@ describe('score', () => {
     }
     const r = score(m, { q1: 0, q2: 1, q3: 0 })
     expect(r.typeCode).toBe('Ex')
-    expect(r.summary).toContain('et-sum')
-    expect(r.summary).toContain('ef-sum')
+    // 居中态改为结构化：summary 是引导语，完整内容进 candidates
+    expect(r.summary).toContain('维度的两极倾向接近')
     expect(r.traits).toEqual(expect.arrayContaining(['et', 'ef']))
+    expect(r.candidates).toHaveLength(2)
+    expect(r.candidates?.map(c => c.code)).toEqual(expect.arrayContaining(['ET', 'EF']))
+    expect(r.candidates?.[0].summary).toMatch(/et-sum|ef-sum/)
+    expect(r.candidates?.[0].traits.length).toBeGreaterThan(0)
   })
 
   it('缺类型码 → 回退文案不崩', () => {

@@ -44,17 +44,17 @@ export function Quiz({ scale, answers, onAnswer, onComplete }: {
   }, [choose, answers, scale, total])
 
   return (
-    <main className="screen quiz">
-      <div className="quiz-top">
+    <main className="screen quiz f-quiz">
+      <div className="quiz-top f-quiz-top">
         <Button variant="ghost" onClick={() => setIdx(i => Math.max(0, i - 1))} disabled={idx === 0}>上一题</Button>
-        <span className="quiz-progress-label">第 {idx + 1} / {total} 题</span>
+        <span className="quiz-progress-label f-count">第 {idx + 1} / {total} 题</span>
       </div>
       <ProgressBar value={idx + 1} max={total} />
-      <h2 className="quiz-text">{q.text}</h2>
-      <div className="quiz-options">
+      <h2 className="quiz-text f-question">{q.text}</h2>
+      <div className="quiz-options f-options">
         {q.options.map((o, i) => (
           <Card key={i} selected={answers[q.id] === i} onClick={() => choose(i as 0 | 1)}>
-            <span className="quiz-option-key">{i === 0 ? '1' : '2'}</span>
+            <span className="quiz-option-key f-key">{i === 0 ? '1' : '2'}</span>
             <span>{o.text}</span>
           </Card>
         ))}

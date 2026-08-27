@@ -13,6 +13,15 @@ export interface ScoreResult {
   summary: string
   traits: string[]
   dimensions: DimensionScore[]
+  /** 居中态（含 x 码）的候选类型列表；确定态为 undefined */
+  candidates?: TypeCandidate[]
+}
+
+export interface TypeCandidate {
+  code: string
+  name: string
+  summary: string
+  traits: string[]
 }
 
 const FALLBACK = {
@@ -83,13 +92,14 @@ export function score(scale: Scale, answers: Record<string, 0 | 1>): ScoreResult
     summary: lookup.summary,
     traits: lookup.traits,
     dimensions,
+    ...(lookup.candidates ? { candidates: lookup.candidates } : {}),
   }
 }
 
 function resolveType(
   scale: Scale,
   code: string,
-): { typeName: string; summary: string; traits: string[] } {
+): { typeName: string; summary: string; traits: string[]; candidates?: TypeCandidate[] } {
   if (code in scale.types) {
     const t = scale.types[code]
     return { typeName: t.name, summary: t.summary, traits: t.traits }
@@ -100,7 +110,9 @@ function resolveType(
     }
     const variants = expandX(code, scale)
     if (variants.length) {
-      const parts = variants.map(v => scale.types[v])
+      // 附带 code 供 candidates 使用（mergeTypeParts 已改为结构化）
+      // expandX 已保证 code===key，此处显式构造（spread 在前避免重复键告警）
+      const parts = variants.map(v => ({ ...scale.types[v], code: v }))
       return mergeTypeParts(parts, code)
     }
   }
@@ -127,22 +139,25 @@ function expandX(code: string, scale: Scale): string[] {
 }
 
 function mergeTypeParts(
-  parts: TypeResult[],
+  parts: (TypeResult & { code: string })[],
   code: string,
-): { typeName: string; summary: string; traits: string[] } {
+): { typeName: string; summary: string; traits: string[]; candidates?: TypeCandidate[] } {
   if (parts.length === 0) {
     return { ...FALLBACK }
   }
-  const names = parts
-    .map(p => p.name)
-    .filter(Boolean)
-    .join(' / ')
-  const summaries = parts.map(p => p.summary).filter(Boolean)
-  const summary = `你的 ${code.replace(/x/g, '≈')} 维度两极倾向接近，以下两种描述都适用：\n\n${summaries.join('\n\n')}`
+  const names = parts.map(p => p.name).filter(Boolean)
   const traits = Array.from(new Set(parts.flatMap(p => p.traits)))
+  // 居中态改为结构化候选列表：
+  // typeName 用分隔符串（兼容旧渲染兜底）、summary 改为引导语，完整数据进 candidates
   return {
-    typeName: names || FALLBACK.typeName,
-    summary: summaries.length ? summary : FALLBACK.summary,
+    typeName: names.join(' / ') || FALLBACK.typeName,
+    summary: `你有 ${code.split('').filter(c => c === 'x').length} 个维度的两极倾向接近，以下类型都接近你。点选查看详情。`,
     traits,
+    candidates: parts.map(p => ({
+      code: p.code,
+      name: p.name,
+      summary: p.summary,
+      traits: p.traits.slice(0, 3),
+    })),
   }
 }

@@ -42,6 +42,28 @@ export const ScaleSchema = z.object({
       })
     }
   }
+
+  // types 必须覆盖全部极组合码（2^n），否则运行时缺文案会静默走兜底
+  let expectedCodes = ['']
+  for (const d of s.dimensions) {
+    expectedCodes = expectedCodes.flatMap(prefix => d.poles.map(p => prefix + p))
+  }
+  const missing = expectedCodes.filter(c => !(c in s.types))
+  const extra = Object.keys(s.types).filter(k => !expectedCodes.includes(k))
+  if (missing.length) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: `types 缺少组合码: ${missing.join(', ')}（共需 ${expectedCodes.length} 个）`,
+      path: ['types'],
+    })
+  }
+  if (extra.length) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: `types 含无效组合码: ${extra.join(', ')}`,
+      path: ['types'],
+    })
+  }
 })
 
 export type Scale = z.infer<typeof ScaleSchema>

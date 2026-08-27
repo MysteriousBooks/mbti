@@ -11,7 +11,10 @@ const validScale = {
   questions: [
     { id: 'q1', text: 't', dimensionId: 'ei', options: [{ text: 'a', pole: 'E', weight: 2 }, { text: 'b', pole: 'I', weight: 1 }] },
   ],
-  types: { EEEE: { code: 'EEEE', name: 'n', summary: 's', traits: ['t'] } },
+  types: {
+    E: { code: 'E', name: 'n', summary: 's', traits: ['t'] },
+    I: { code: 'I', name: 'n', summary: 's', traits: ['t'] },
+  },
 }
 
 describe('ScaleSchema', () => {
@@ -64,6 +67,20 @@ describe('ScaleSchema', () => {
   })
   it('拒绝 types 值结构非法（traits 非数组）', () => {
     const bad = { ...validScale, types: { EEEE: { code: 'EEEE', name: 'n', summary: 's', traits: 't' } } }
+    expect(() => ScaleSchema.parse(bad)).toThrow()
+  })
+  it('接受 types 覆盖全部极组合', () => {
+    // E + I 恰好覆盖 1 维度 2 极的全部组合
+    const ok = { ...validScale, types: { E: { code: 'E', name: 'n', summary: 's', traits: ['t'] }, I: { code: 'I', name: 'n', summary: 's', traits: ['t'] } } }
+    expect(() => ScaleSchema.parse(ok)).not.toThrow()
+  })
+  it('拒绝 types 缺少极组合（漏类型文案会在运行时静默兜底）', () => {
+    // 1 维度 2 极应有两个组合码 E / I，缺 I 报错
+    const bad = { ...validScale, types: { E: { code: 'E', name: 'n', summary: 's', traits: ['t'] } } }
+    expect(() => ScaleSchema.parse(bad)).toThrow(/I/)
+  })
+  it('拒绝 types key 不属于任何极组合', () => {
+    const bad = { ...validScale, types: { E: { code: 'E', name: 'n', summary: 's', traits: ['t'] }, X: { code: 'X', name: 'n', summary: 's', traits: ['t'] } } }
     expect(() => ScaleSchema.parse(bad)).toThrow()
   })
 })
