@@ -179,6 +179,47 @@ body {
 .f-start { font-style: normal; color: var(--color-marker-red); font-weight: 700; font-size: 0.85rem; margin-top: 0.4rem; }
 
 /* Quiz 答题屏 */
+/* —— 答题页动态涂鸦层（自 design lab 转正，随题目切换重画） —— */
+/* 答题页激活：全局静态涂鸦退场，仅保留两层画纸纹理；动态涂鸦由 Quiz 内 .dl-layer 接管 */
+body.quiz-doodles-live {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.5' intercept='-0.08'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.01' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.3' intercept='-0.06'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='420' height='420' filter='url(%23c)'/%3E%3C/svg%3E");
+  background-position: 0 0, 0 0;
+  background-size: 240px, 420px;
+  background-repeat: repeat, repeat;
+}
+/* 涂鸦层：absolute 铺满答题屏，不拦截点击；答题内容抬升到涂鸦之上 */
+.quiz { position: relative; overflow: hidden; }
+.quiz > .dl-layer { z-index: 0; }
+.quiz > :not(.dl-layer) { position: relative; z-index: 1; }
+.dl-layer { position: absolute; inset: 0; pointer-events: none; }
+.dl-doodle {
+  position: absolute;
+  background: no-repeat center / contain;
+  opacity: 0.9;
+  transform: translate(-50%, -50%) rotate(var(--rot));
+  animation: dl-pop 480ms var(--ease-out) backwards;
+  animation-delay: var(--delay);
+  transition: opacity 700ms;
+}
+.dl-doodle.is-faded { animation: none; opacity: 0.16; }
+/* 选中选项瞬间的兴奋跳动（a/b 交替 class 以重放） */
+.dl-doodle.is-pulse-a, .dl-doodle.is-pulse-b { animation: dl-pulse 340ms var(--ease-out); animation-delay: 0ms; }
+
+@keyframes dl-pop {
+  0% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--rot)) scale(0.2); }
+  55% { opacity: 1; transform: translate(-50%, -50%) rotate(calc(var(--rot) + 6deg)) scale(1.22); }
+  78% { transform: translate(-50%, -50%) rotate(calc(var(--rot) - 3deg)) scale(0.94); }
+  100% { opacity: 0.9; transform: translate(-50%, -50%) rotate(var(--rot)) scale(1); }
+}
+@keyframes dl-pulse {
+  0% { transform: translate(-50%, -50%) rotate(var(--rot)) scale(1); }
+  40% { transform: translate(-50%, -50%) rotate(calc(var(--rot) + 8deg)) scale(1.28); }
+  70% { transform: translate(-50%, -50%) rotate(calc(var(--rot) - 4deg)) scale(0.92); }
+  100% { transform: translate(-50%, -50%) rotate(var(--rot)) scale(1); }
+}
+
 .quiz-top { display: flex; align-items: center; gap: 10px; max-width: 340px; margin: 0 auto var(--space-2); width: 100%; }
 .quiz-progress-label { color: var(--color-ink-soft); font-size: 0.9em; font-variant-numeric: tabular-nums; }
 .quiz-text { font-size: 1.25rem; margin: var(--space-3) 0; text-align: center; }

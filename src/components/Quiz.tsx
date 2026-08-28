@@ -3,6 +3,9 @@ import type { Scale } from '../data/schemas'
 import { Card } from './ui/Card'
 import { ProgressBar } from './ui/ProgressBar'
 import { Button } from './ui/Button'
+import { DoodleLayer } from './DoodleLayer'
+import { placeDoodles, poolOf, doodleCountFor } from '../lib/doodles'
+import type { DoodlePlacement } from '../lib/doodles'
 
 export function Quiz({ scale, answers, onAnswer, onComplete }: {
   scale: Scale
@@ -19,6 +22,19 @@ export function Quiz({ scale, answers, onAnswer, onComplete }: {
   const idxRef = useRef(idx)
   useEffect(() => { idxRef.current = idx }, [idx])
   const q = scale.questions[idx]
+
+  // 涂鸦随题重画：新 id 强制重建 DOM，重放弹跳入场动画
+  const [doodles, setDoodles] = useState<DoodlePlacement[]>([])
+  // 答题页接管背景：压制 body 全局静态涂鸦（保留画纸纹理），卸载时恢复
+  useEffect(() => {
+    document.body.classList.add('quiz-doodles-live')
+    return () => document.body.classList.remove('quiz-doodles-live')
+  }, [])
+  useEffect(() => {
+    const cur = scale.questions[idx]
+    // 数量随视口面积伸缩：重画时机只在切题（resize 不重画，位置本就是百分比坐标）
+    if (cur) setDoodles(placeDoodles(poolOf(cur.dimensionId), doodleCountFor(window.innerWidth, window.innerHeight)))
+  }, [idx, scale.questions])
 
   const choose = useCallback((optionIndex: 0 | 1) => {
     const cur = idxRef.current
@@ -45,6 +61,7 @@ export function Quiz({ scale, answers, onAnswer, onComplete }: {
 
   return (
     <main className="screen quiz f-quiz">
+      <DoodleLayer items={doodles} />
       <div className="quiz-top f-quiz-top">
         <Button variant="ghost" onClick={() => setIdx(i => Math.max(0, i - 1))} disabled={idx === 0}>上一题</Button>
         <span className="quiz-progress-label f-count">第 {idx + 1} / {total} 题</span>

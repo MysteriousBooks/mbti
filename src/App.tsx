@@ -7,6 +7,7 @@ import { loadScaleById, SCALE_LIST } from './lib/loadScale'
 import { drawQuestions } from './lib/draw'
 import { score } from './lib/scoring'
 import type { Scale } from './data/schemas'
+import { DesignLab } from './design_lab'
 
 type Phase = 'select' | 'quiz' | 'result'
 
@@ -24,6 +25,11 @@ export function App() {
     () => (drawn && phase === 'result' ? score(drawn, answers) : null),
     [drawn, answers, phase],
   )
+
+  // 临时入口：?design_lab=true 打开设计实验室（设计会话产物，定稿后随 src/design_lab/ 一起删除）
+  if (new URLSearchParams(window.location.search).has('design_lab')) {
+    return <DesignLab />
+  }
 
   const startScale = (id: string) => {
     const s = loadScaleById(id)

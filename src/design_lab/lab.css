@@ -1,0 +1,96 @@
+/* Design Lab 专用样式：变体网格 + 局部涂鸦层 + 弹跳动画。
+   基础视觉（纸色、墨色、卡片、按钮、f-pop）全部复用 src/index.css。 */
+
+/* Lab 打开时压制 body 全局静态涂鸦，避免干扰变体对比 */
+body.dl-suppress { background-image: none; }
+
+.dl-root {
+  min-height: 100vh;
+  background: var(--color-paper);
+  padding: 32px clamp(12px, 3vw, 40px) 80px;
+}
+
+.dl-head { max-width: 1180px; margin: 0 auto 28px; }
+.dl-head h1 { font-size: 1.6rem; margin: 0 0 4px; }
+.dl-head > p { margin: 0 0 14px; color: var(--color-ink-soft); font-size: 0.9rem; }
+
+.dl-brief {
+  background: white; border: 2px solid var(--color-ink); border-radius: 14px;
+  box-shadow: var(--shadow-hard); padding: 12px 18px;
+  font-size: 0.84rem; line-height: 1.8; color: var(--color-ink-soft);
+}
+.dl-brief strong { color: var(--color-ink); }
+
+.dl-grid { display: grid; gap: 28px; grid-template-columns: 1fr; max-width: 1180px; margin: 0 auto; }
+@media (min-width: 960px) { .dl-grid { grid-template-columns: 1fr 1fr; } }
+
+.dl-cell { min-width: 0; }
+.dl-cell-head { margin-bottom: 10px; }
+.dl-cell-head h2 { font-size: 1.05rem; margin: 0 0 4px; }
+.dl-cell-head p { margin: 0; font-size: 0.85rem; color: var(--color-ink-soft); }
+.dl-notes { margin-top: 10px; font-size: 0.8rem; color: var(--color-ink-soft); line-height: 1.7; }
+.dl-notes strong { color: var(--color-marker-red); }
+
+/* 舞台：每变体的独立画纸（含纸面颗粒纹理），涂鸦层与答题内容都在其中 */
+.dl-stage {
+  position: relative; overflow: hidden;
+  min-height: 580px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 56px 12px;
+  background-color: var(--color-paper);
+  border: 2.5px solid var(--color-ink); border-radius: var(--radius-card);
+  box-shadow: var(--shadow-hard-lg);
+}
+.dl-stage::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.5' intercept='-0.08'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E") repeat;
+  opacity: 0.5;
+}
+
+/* 局部涂鸦层样式已转正至 src/index.css（Quiz 答题页与 lab 变体共用 .dl-layer/.dl-doodle） */
+
+/* 答题内容：窄列居中，位于涂鸦层之上 */
+.dl-quiz {
+  position: relative; z-index: 1;
+  width: min(340px, 88%); text-align: center;
+}
+.dl-quiz-meta {
+  margin: 0; display: flex; align-items: center; justify-content: center; gap: 8px;
+  color: var(--color-ink-soft); font-size: 0.9em;
+}
+.dl-quiz .quiz-text { margin: 14px 0 18px; }
+
+.dl-dim-badge {
+  display: inline-block; padding: 1px 10px;
+  font-size: 0.72rem; font-weight: 700;
+  background: var(--color-marker-blue); color: white;
+  border: 2px solid var(--color-ink); border-radius: 999px;
+  transform: rotate(-2deg);
+  box-shadow: 2px 2px 0 oklch(28% 0.03 60 / 0.8);
+  white-space: nowrap;
+}
+
+.dl-replay {
+  position: absolute; right: 14px; bottom: 12px; z-index: 2;
+  font: inherit; font-size: 0.78rem; font-weight: 600;
+  padding: 4px 12px; cursor: pointer;
+  background: white; color: var(--color-ink);
+  border: 2px solid var(--color-ink); border-radius: 999px;
+  box-shadow: 2px 2px 0 oklch(28% 0.03 60 / 0.8);
+  transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
+}
+.dl-replay:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 oklch(28% 0.03 60 / 0.85); }
+
+/* Variant E 完卷庆祝卡 */
+.dl-celebrate-card {
+  position: relative; z-index: 2;
+  max-width: 300px; padding: 22px 24px; text-align: center;
+  background: var(--color-marker-yellow);
+  border: 2.5px solid var(--color-ink); border-radius: var(--radius-card);
+  box-shadow: var(--shadow-hard-lg);
+  animation: f-pop 400ms var(--ease-out);
+}
+.dl-celebrate-card strong { display: block; font-size: 1.2rem; margin-bottom: 8px; }
+.dl-celebrate-card p { margin: 0; font-size: 0.85rem; line-height: 1.7; }
+
+.dl-empty { color: var(--color-ink-soft); font-size: 0.9rem; }
