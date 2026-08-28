@@ -1,7 +1,7 @@
 {
   "id": "plus",
   "name": "升级版 MBTI",
-  "description": "升级版 32 型人格测试，5 个维度，80 道题",
+  "description": "升级版 32 型人格测试，5 个维度，80 道题（题库 160 题，每次随机抽取）",
   "dimensions": [
     {
       "id": "ei",
@@ -1420,6 +1420,1366 @@
         },
         {
           "text": "先相信自己能做到",
+          "weight": 2,
+          "pole": "A"
+        }
+      ]
+    },
+    {
+      "id": "ei-17",
+      "text": "自己的生日快到了，你更想：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "叫上一群朋友好好热闹一场",
+          "weight": 3,
+          "pole": "E"
+        },
+        {
+          "text": "和一两个亲近的人安静度过",
+          "weight": 3,
+          "pole": "I"
+        }
+      ]
+    },
+    {
+      "id": "ei-18",
+      "text": "在陌生城市找不到路，你更常：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "自己查地图跟着导航走",
+          "weight": 2,
+          "pole": "I"
+        },
+        {
+          "text": "直接找路人开口问路",
+          "weight": 2,
+          "pole": "E"
+        }
+      ]
+    },
+    {
+      "id": "ei-19",
+      "text": "喜欢的歌手开演唱会，你会：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "更享受自己在家看高清直播的自在",
+          "weight": 3,
+          "pole": "I"
+        },
+        {
+          "text": "喜欢现场和一大群人一起嗨的氛围",
+          "weight": 3,
+          "pole": "E"
+        }
+      ]
+    },
+    {
+      "id": "ei-20",
+      "text": "玩游戏放松时，你更喜欢：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "连麦组队边玩边聊",
+          "weight": 2,
+          "pole": "E"
+        },
+        {
+          "text": "单机自己安静地玩",
+          "weight": 2,
+          "pole": "I"
+        }
+      ]
+    },
+    {
+      "id": "ei-21",
+      "text": "朋友喊你去KTV，你通常：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "麦克风一晚基本没放下",
+          "weight": 3,
+          "pole": "E"
+        },
+        {
+          "text": "在旁边吃果盘当观众",
+          "weight": 3,
+          "pole": "I"
+        }
+      ]
+    },
+    {
+      "id": "ei-22",
+      "text": "选合租的房子时，你更看重：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "有独立的房间能独处",
+          "weight": 2,
+          "pole": "I"
+        },
+        {
+          "text": "有热闹的客厅能聚人",
+          "weight": 2,
+          "pole": "E"
+        }
+      ]
+    },
+    {
+      "id": "ei-23",
+      "text": "和好朋友待在屋里各做各的事，你更常：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "忍不住找话题聊几句",
+          "weight": 3,
+          "pole": "E"
+        },
+        {
+          "text": "各自安静待着挺自在",
+          "weight": 3,
+          "pole": "I"
+        }
+      ]
+    },
+    {
+      "id": "ei-24",
+      "text": "同屋的人晚上喊你一起聊天，你更常：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "放下手里的事加入进去",
+          "weight": 2,
+          "pole": "E"
+        },
+        {
+          "text": "简单聊两句就回到自己的事上",
+          "weight": 2,
+          "pole": "I"
+        }
+      ]
+    },
+    {
+      "id": "ei-25",
+      "text": "排队时旁边的陌生人主动搭话，你更常：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "顺着聊起来",
+          "weight": 2,
+          "pole": "E"
+        },
+        {
+          "text": "礼貌回应后继续做自己的事",
+          "weight": 2,
+          "pole": "I"
+        }
+      ]
+    },
+    {
+      "id": "ei-26",
+      "text": "准备一场重要汇报，你更想：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "自己关起门先练到顺",
+          "weight": 3,
+          "pole": "I"
+        },
+        {
+          "text": "拉个同事先听你讲一遍",
+          "weight": 3,
+          "pole": "E"
+        }
+      ]
+    },
+    {
+      "id": "ei-27",
+      "text": "参加兴趣社团，你更看重：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "认识志同道合的新朋友",
+          "weight": 2,
+          "pole": "E"
+        },
+        {
+          "text": "沉浸在自己喜欢的事里",
+          "weight": 2,
+          "pole": "I"
+        }
+      ]
+    },
+    {
+      "id": "ei-28",
+      "text": "和家人一起看电视时，你更常：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "边看边点评唠个不停",
+          "weight": 2,
+          "pole": "E"
+        },
+        {
+          "text": "安静地看偶尔搭句话",
+          "weight": 2,
+          "pole": "I"
+        }
+      ]
+    },
+    {
+      "id": "ei-29",
+      "text": "晚上家里突然停电，你会：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "正好借着黑暗静一静",
+          "weight": 3,
+          "pole": "I"
+        },
+        {
+          "text": "招呼大家点蜡烛聊天",
+          "weight": 3,
+          "pole": "E"
+        }
+      ]
+    },
+    {
+      "id": "ei-30",
+      "text": "一整天一个人在家没说话，你会：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "闷得想马上出门找人聚",
+          "weight": 3,
+          "pole": "E"
+        },
+        {
+          "text": "挺享受，想再来这么一天",
+          "weight": 3,
+          "pole": "I"
+        }
+      ]
+    },
+    {
+      "id": "ei-31",
+      "text": "你更过瘾的聊天方式是：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "和一个人慢慢聊到深处",
+          "weight": 3,
+          "pole": "I"
+        },
+        {
+          "text": "和一群人热热闹闹地聊",
+          "weight": 3,
+          "pole": "E"
+        }
+      ]
+    },
+    {
+      "id": "ei-32",
+      "text": "考完试的当天晚上，你更想：",
+      "dimensionId": "ei",
+      "options": [
+        {
+          "text": "自己安静待着",
+          "weight": 2,
+          "pole": "I"
+        },
+        {
+          "text": "约同学一起吃饭聊聊天",
+          "weight": 2,
+          "pole": "E"
+        }
+      ]
+    },
+    {
+      "id": "sn-17",
+      "text": "同事提出个大胆的新点子，你的第一反应是：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "盘算具体怎么执行落地",
+          "weight": 3,
+          "pole": "S"
+        },
+        {
+          "text": "琢磨它能带来什么改变",
+          "weight": 3,
+          "pole": "N"
+        }
+      ]
+    },
+    {
+      "id": "sn-18",
+      "text": "家人群里商量周末去哪玩，你更常：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "先查好路线、天气这些具体情况",
+          "weight": 2,
+          "pole": "S"
+        },
+        {
+          "text": "提议去个没去过的地方",
+          "weight": 2,
+          "pole": "N"
+        }
+      ]
+    },
+    {
+      "id": "sn-19",
+      "text": "玩猜谜或脑筋急转弯时，你更习惯：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "按字面意思一条条试",
+          "weight": 3,
+          "pole": "S"
+        },
+        {
+          "text": "顺着联想跳着去猜",
+          "weight": 3,
+          "pole": "N"
+        }
+      ]
+    },
+    {
+      "id": "sn-20",
+      "text": "网上突然流行起一样东西，你通常会：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "先想想它为什么会火",
+          "weight": 3,
+          "pole": "N"
+        },
+        {
+          "text": "先看看它实不实用",
+          "weight": 3,
+          "pole": "S"
+        }
+      ]
+    },
+    {
+      "id": "sn-21",
+      "text": "照着菜谱做一道新菜，你多半会：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "分量和步骤都照着来",
+          "weight": 3,
+          "pole": "S"
+        },
+        {
+          "text": "边做边改试出新花样",
+          "weight": 3,
+          "pole": "N"
+        }
+      ]
+    },
+    {
+      "id": "sn-22",
+      "text": "看一场比赛，你更留意的是：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "教练的战术布置",
+          "weight": 2,
+          "pole": "N"
+        },
+        {
+          "text": "球员的动作细节",
+          "weight": 2,
+          "pole": "S"
+        }
+      ]
+    },
+    {
+      "id": "sn-23",
+      "text": "初到一个陌生城市，你认路更靠：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "大概的方位和走向",
+          "weight": 2,
+          "pole": "N"
+        },
+        {
+          "text": "具体的路口和标志",
+          "weight": 2,
+          "pole": "S"
+        }
+      ]
+    },
+    {
+      "id": "sn-24",
+      "text": "出门时突然遇上大堵车，你会：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "先算算时间来不来得及",
+          "weight": 3,
+          "pole": "S"
+        },
+        {
+          "text": "想想有没有别的路线",
+          "weight": 3,
+          "pole": "N"
+        }
+      ]
+    },
+    {
+      "id": "sn-25",
+      "text": "开会或听课时做笔记，你更常写下：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "讲到的原话和要点",
+          "weight": 2,
+          "pole": "S"
+        },
+        {
+          "text": "自己冒出的新点子",
+          "weight": 2,
+          "pole": "N"
+        }
+      ]
+    },
+    {
+      "id": "sn-26",
+      "text": "研究一款新出的电子产品，你先想知道的是：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "参数和价格这些具体配置",
+          "weight": 3,
+          "pole": "S"
+        },
+        {
+          "text": "它能给生活带来什么新玩法",
+          "weight": 3,
+          "pole": "N"
+        }
+      ]
+    },
+    {
+      "id": "sn-27",
+      "text": "教长辈用智能手机，你更倾向于：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "把常用的几步写下来",
+          "weight": 2,
+          "pole": "S"
+        },
+        {
+          "text": "先带他看看都能干啥",
+          "weight": 2,
+          "pole": "N"
+        }
+      ]
+    },
+    {
+      "id": "sn-28",
+      "text": "翻看自己多年前的照片，你更容易：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "注意到这一路的变化",
+          "weight": 3,
+          "pole": "N"
+        },
+        {
+          "text": "想起当天的具体情形",
+          "weight": 3,
+          "pole": "S"
+        }
+      ]
+    },
+    {
+      "id": "sn-29",
+      "text": "逛博物馆或展览时，你更喜欢：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "挨个细看实物和说明",
+          "weight": 2,
+          "pole": "S"
+        },
+        {
+          "text": "想象它们当年的故事",
+          "weight": 2,
+          "pole": "N"
+        }
+      ]
+    },
+    {
+      "id": "sn-30",
+      "text": "聊到有分歧的话题，你更常：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "把它归纳成普遍的道理",
+          "weight": 3,
+          "pole": "N"
+        },
+        {
+          "text": "举出身边具体的例子",
+          "weight": 3,
+          "pole": "S"
+        }
+      ]
+    },
+    {
+      "id": "sn-31",
+      "text": "刷到一条行业动态时，你更关心的是：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "事情具体经过了什么",
+          "weight": 2,
+          "pole": "S"
+        },
+        {
+          "text": "之后会怎么发展下去",
+          "weight": 2,
+          "pole": "N"
+        }
+      ]
+    },
+    {
+      "id": "sn-32",
+      "text": "要重新布置自己的房间，你会：",
+      "dimensionId": "sn",
+      "options": [
+        {
+          "text": "先想想要的风格和样子",
+          "weight": 2,
+          "pole": "N"
+        },
+        {
+          "text": "先量房间的实际尺寸",
+          "weight": 2,
+          "pole": "S"
+        }
+      ]
+    },
+    {
+      "id": "tf-17",
+      "text": "群里有人转了条假消息，你会：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "私聊提醒他，免得他难堪",
+          "weight": 3,
+          "pole": "F"
+        },
+        {
+          "text": "查证后发消息澄清事实",
+          "weight": 3,
+          "pole": "T"
+        }
+      ]
+    },
+    {
+      "id": "tf-18",
+      "text": "和朋友看完电影，你更想聊：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "哪里情节有点说不通",
+          "weight": 2,
+          "pole": "T"
+        },
+        {
+          "text": "哪个瞬间最打动你",
+          "weight": 2,
+          "pole": "F"
+        }
+      ]
+    },
+    {
+      "id": "tf-19",
+      "text": "项目要延期了，向客户说明时你会先：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "讲清原因和补救安排",
+          "weight": 3,
+          "pole": "T"
+        },
+        {
+          "text": "先道歉，体谅他着急的心情",
+          "weight": 3,
+          "pole": "F"
+        }
+      ]
+    },
+    {
+      "id": "tf-20",
+      "text": "职业选择和父母想法不同，你会：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "把两种选择的利弊客观摊开给父母分析",
+          "weight": 2,
+          "pole": "T"
+        },
+        {
+          "text": "不争对错，先让他们宽心",
+          "weight": 2,
+          "pole": "F"
+        }
+      ]
+    },
+    {
+      "id": "tf-21",
+      "text": "部门新来一位同事，你会先：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "给他整理一份上手清单",
+          "weight": 2,
+          "pole": "T"
+        },
+        {
+          "text": "带他跟大家认识认识",
+          "weight": 2,
+          "pole": "F"
+        }
+      ]
+    },
+    {
+      "id": "tf-22",
+      "text": "玩桌游时大家对规则起了分歧，你会：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "图大家尽兴，改就改",
+          "weight": 3,
+          "pole": "F"
+        },
+        {
+          "text": "按规则原文来才公平",
+          "weight": 3,
+          "pole": "T"
+        }
+      ]
+    },
+    {
+      "id": "tf-23",
+      "text": "装修新房定方案，你更看重：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "结实耐用、性价比高",
+          "weight": 2,
+          "pole": "T"
+        },
+        {
+          "text": "全家人住得舒心自在",
+          "weight": 2,
+          "pole": "F"
+        }
+      ]
+    },
+    {
+      "id": "tf-24",
+      "text": "公司团建选活动，你更希望：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "别落下平时不爱说话的",
+          "weight": 2,
+          "pole": "F"
+        },
+        {
+          "text": "按票数最高的结果来",
+          "weight": 2,
+          "pole": "T"
+        }
+      ]
+    },
+    {
+      "id": "tf-25",
+      "text": "同事突然请了病假，你会先：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "先把他手头的急活理顺",
+          "weight": 3,
+          "pole": "T"
+        },
+        {
+          "text": "先打电话关心下病情",
+          "weight": 3,
+          "pole": "F"
+        }
+      ]
+    },
+    {
+      "id": "tf-26",
+      "text": "考虑要不要回老家发展，你更看重：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "能不能常伴在爸妈身边",
+          "weight": 3,
+          "pole": "F"
+        },
+        {
+          "text": "机会多不多、成本高不高",
+          "weight": 3,
+          "pole": "T"
+        }
+      ]
+    },
+    {
+      "id": "tf-27",
+      "text": "家里漏水渗到楼下，处理告一段落后，你更上心：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "查清漏水原因，定好维修和责任方案",
+          "weight": 2,
+          "pole": "T"
+        },
+        {
+          "text": "先当面跟邻居沟通安抚，把关系处顺",
+          "weight": 2,
+          "pole": "F"
+        }
+      ]
+    },
+    {
+      "id": "tf-28",
+      "text": "体检查出点小毛病，你会怎么跟爸妈说：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "报喜不报忧，免他们担心",
+          "weight": 3,
+          "pole": "F"
+        },
+        {
+          "text": "如实相告，让家里有准备",
+          "weight": 3,
+          "pole": "T"
+        }
+      ]
+    },
+    {
+      "id": "tf-29",
+      "text": "给孩子报兴趣班，你更看重：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "课程成体系、效果看得见",
+          "weight": 2,
+          "pole": "T"
+        },
+        {
+          "text": "孩子上得开不开心",
+          "weight": 2,
+          "pole": "F"
+        }
+      ]
+    },
+    {
+      "id": "tf-30",
+      "text": "挑选想加入的社团时，你更看重：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "里头的人热不热情",
+          "weight": 3,
+          "pole": "F"
+        },
+        {
+          "text": "能不能学到真东西",
+          "weight": 3,
+          "pole": "T"
+        }
+      ]
+    },
+    {
+      "id": "tf-31",
+      "text": "网购体验一般，纠结要不要给差评，你会：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "照实写，体验就是一般",
+          "weight": 2,
+          "pole": "T"
+        },
+        {
+          "text": "人家挺诚恳的，就算了",
+          "weight": 2,
+          "pole": "F"
+        }
+      ]
+    },
+    {
+      "id": "tf-32",
+      "text": "长期合作的供应商最近常出小纰漏，你会：",
+      "dimensionId": "tf",
+      "options": [
+        {
+          "text": "按最近的交付记录客观评估合作",
+          "weight": 3,
+          "pole": "T"
+        },
+        {
+          "text": "先跟对方沟通，给一次改进的机会",
+          "weight": 3,
+          "pole": "F"
+        }
+      ]
+    },
+    {
+      "id": "jp-17",
+      "text": "学习一门新东西时，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "定期检查进度，落后了会赶一赶",
+          "pole": "J",
+          "weight": 3
+        },
+        {
+          "text": "不太看进度，学到哪算哪",
+          "pole": "P",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "id": "jp-18",
+      "text": "约朋友周末一起爬山，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "提前定好几点在哪个口集合",
+          "pole": "J",
+          "weight": 3
+        },
+        {
+          "text": "到时候群里说一声再定",
+          "pole": "P",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "id": "jp-19",
+      "text": "安排锻炼时，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "习惯固定留出每周哪几个时段",
+          "pole": "J",
+          "weight": 3
+        },
+        {
+          "text": "哪天有兴致哪天安排",
+          "pole": "P",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "id": "jp-20",
+      "text": "电商大促开抢前，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "到点后边逛边看买什么",
+          "pole": "P",
+          "weight": 3
+        },
+        {
+          "text": "提前列好清单设好提醒",
+          "pole": "J",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "id": "jp-21",
+      "text": "和人约着要谈点事情，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "提前说好大概谈多久",
+          "pole": "J",
+          "weight": 3
+        },
+        {
+          "text": "聊到哪算哪不限时间",
+          "pole": "P",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "id": "jp-22",
+      "text": "计划好的周末安排临时取消，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "正好空着随性待着",
+          "pole": "P",
+          "weight": 3
+        },
+        {
+          "text": "马上补上别的安排",
+          "pole": "J",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "id": "jp-23",
+      "text": "周末出门逛街，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "提前定好几点出发",
+          "pole": "J",
+          "weight": 3
+        },
+        {
+          "text": "看当天情况临时决定几点出门",
+          "pole": "P",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "id": "jp-24",
+      "text": "答应帮别人办的事，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "记在心里临近再去办",
+          "pole": "P",
+          "weight": 3
+        },
+        {
+          "text": "记下来提前几天办妥",
+          "pole": "J",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "id": "jp-25",
+      "text": "家里要来客人做大扫除，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "到时候全家一起搭把手",
+          "pole": "P",
+          "weight": 2
+        },
+        {
+          "text": "提前分好谁负责哪一块",
+          "pole": "J",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "id": "jp-26",
+      "text": "玩一款新出的游戏，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "先把规则和玩法弄明白",
+          "pole": "J",
+          "weight": 2
+        },
+        {
+          "text": "直接上手边玩边摸索",
+          "pole": "P",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "id": "jp-27",
+      "text": "手头的事做到一半又有新的插进来，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "先把手头这件事收完尾",
+          "pole": "J",
+          "weight": 2
+        },
+        {
+          "text": "先去处理刚插进来的",
+          "pole": "P",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "id": "jp-28",
+      "text": "要办证件或做个体检，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "到了现场再问再补材料",
+          "pole": "P",
+          "weight": 2
+        },
+        {
+          "text": "提前查好流程备齐材料",
+          "pole": "J",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "id": "jp-29",
+      "text": "读一本实用工具书，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "先翻最感兴趣的那几章",
+          "pole": "P",
+          "weight": 2
+        },
+        {
+          "text": "按目录从头到尾看下来",
+          "pole": "J",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "id": "jp-30",
+      "text": "安排一个月里的周末活动，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "月初就把几次活动都排好",
+          "pole": "J",
+          "weight": 2
+        },
+        {
+          "text": "临近周末看心情再定",
+          "pole": "P",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "id": "jp-31",
+      "text": "和别人约好的时间对方想改，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "改就改没什么大不了",
+          "pole": "P",
+          "weight": 2
+        },
+        {
+          "text": "尽量还是按原时间来",
+          "pole": "J",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "id": "jp-32",
+      "text": "第二天要穿的衣服，你更常：",
+      "dimensionId": "jp",
+      "options": [
+        {
+          "text": "前一晚就搭配好放好",
+          "pole": "J",
+          "weight": 2
+        },
+        {
+          "text": "当天早上再看着搭配",
+          "pole": "P",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "id": "at-17",
+      "text": "上级突然发来一句“在吗”，你：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "照常回复，等着对方说事",
+          "weight": 3,
+          "pole": "A"
+        },
+        {
+          "text": "心里咯噔一下，猜是不是出事了",
+          "weight": 3,
+          "pole": "T"
+        }
+      ]
+    },
+    {
+      "id": "at-18",
+      "text": "在大伙面前出了个小糗，你：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "有点尴尬，但不大会再想起来",
+          "weight": 3,
+          "pole": "A"
+        },
+        {
+          "text": "会别扭一阵，过后还会想起来",
+          "weight": 3,
+          "pole": "T"
+        }
+      ]
+    },
+    {
+      "id": "at-19",
+      "text": "最近的日子，你的心情更常是：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "大体平和，很少被带偏",
+          "weight": 3,
+          "pole": "A"
+        },
+        {
+          "text": "容易被日常小事搅动",
+          "weight": 3,
+          "pole": "T"
+        }
+      ]
+    },
+    {
+      "id": "at-20",
+      "text": "重要结果还没公布的那几天，你：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "忍不住设想各种可能的结果",
+          "weight": 3,
+          "pole": "T"
+        },
+        {
+          "text": "照常过日子，不太去多想",
+          "weight": 3,
+          "pole": "A"
+        }
+      ]
+    },
+    {
+      "id": "at-21",
+      "text": "答应帮别人的忙，在办完之前你：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "心里有底，按自己的节奏办",
+          "weight": 3,
+          "pole": "A"
+        },
+        {
+          "text": "会一直惦记着，办妥了才踏实",
+          "weight": 3,
+          "pole": "T"
+        }
+      ]
+    },
+    {
+      "id": "at-22",
+      "text": "刚进入一个新环境那几天，你：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "会留意自己给别人什么印象",
+          "weight": 3,
+          "pole": "T"
+        },
+        {
+          "text": "不太去想别人怎么看自己",
+          "weight": 3,
+          "pole": "A"
+        }
+      ]
+    },
+    {
+      "id": "at-23",
+      "text": "要发出一条很重要的消息时，你：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "想先找个人帮着把把关",
+          "weight": 3,
+          "pole": "T"
+        },
+        {
+          "text": "自己确认好就直接发了",
+          "weight": 3,
+          "pole": "A"
+        }
+      ]
+    },
+    {
+      "id": "at-24",
+      "text": "事后发现当时其实挺悬，你：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "庆幸一下，没再多想",
+          "weight": 3,
+          "pole": "A"
+        },
+        {
+          "text": "过后还会一阵阵后怕",
+          "weight": 3,
+          "pole": "T"
+        }
+      ]
+    },
+    {
+      "id": "at-25",
+      "text": "在群里发了句话，没人接茬，你：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "会琢磨是不是自己哪句不合适",
+          "weight": 2,
+          "pole": "T"
+        },
+        {
+          "text": "多半觉得大家正好在忙",
+          "weight": 2,
+          "pole": "A"
+        }
+      ]
+    },
+    {
+      "id": "at-26",
+      "text": "发完一条动态后的那阵子，你：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "发完就放下，很少回头看",
+          "weight": 2,
+          "pole": "A"
+        },
+        {
+          "text": "会时不时刷新看有没有人回应",
+          "weight": 2,
+          "pole": "T"
+        }
+      ]
+    },
+    {
+      "id": "at-27",
+      "text": "被人当面夸奖的时候，你：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "会当作真诚的肯定收下",
+          "weight": 2,
+          "pole": "A"
+        },
+        {
+          "text": "会想想对方是不是随口一说",
+          "weight": 2,
+          "pole": "T"
+        }
+      ]
+    },
+    {
+      "id": "at-28",
+      "text": "长辈追问工作、感情这些近况，你：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "会下意识防着，怕被评点",
+          "weight": 2,
+          "pole": "T"
+        },
+        {
+          "text": "如实说说，没觉得有压力",
+          "weight": 2,
+          "pole": "A"
+        }
+      ]
+    },
+    {
+      "id": "at-29",
+      "text": "学新东西卡在某个环节时，你：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "相信多摆弄几次能摸出门道",
+          "weight": 2,
+          "pole": "A"
+        },
+        {
+          "text": "容易怀疑是不是方法不对",
+          "weight": 2,
+          "pole": "T"
+        }
+      ]
+    },
+    {
+      "id": "at-30",
+      "text": "刷到别人晒出的精彩生活，你：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "会不自觉拿自己的近况对比",
+          "weight": 2,
+          "pole": "T"
+        },
+        {
+          "text": "看两眼就划走，不多想",
+          "weight": 2,
+          "pole": "A"
+        }
+      ]
+    },
+    {
+      "id": "at-31",
+      "text": "朋友把合照发到群里，你：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "一般不太留意自己的样子",
+          "weight": 2,
+          "pole": "A"
+        },
+        {
+          "text": "会先看看自己拍得怎么样",
+          "weight": 2,
+          "pole": "T"
+        }
+      ]
+    },
+    {
+      "id": "at-32",
+      "text": "帮了忙却没人提起，你：",
+      "dimensionId": "at",
+      "options": [
+        {
+          "text": "心里会有点不是滋味",
+          "weight": 2,
+          "pole": "T"
+        },
+        {
+          "text": "本来也没图啥，不太在意",
           "weight": 2,
           "pole": "A"
         }

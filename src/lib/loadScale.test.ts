@@ -9,12 +9,14 @@ describe('loadScaleById', () => {
     const s = loadScaleById('classic')
     expect(s).not.toBeNull()
     expect(s!.id).toBe('classic')
-    expect(s!.questions.length).toBe(64)
+    // 题库扩充后 4 维度 × 32 题
+    expect(s!.questions.length).toBe(128)
+    expect(s!.dimensions.length).toBe(4)
   })
-  it('loadScaleById("plus") 返回 80 题 5 维度', () => {
+  it('loadScaleById("plus") 返回 160 题 5 维度', () => {
     const s = loadScaleById('plus')
     expect(s).not.toBeNull()
-    expect(s!.questions.length).toBe(80)
+    expect(s!.questions.length).toBe(160)
     expect(s!.dimensions.length).toBe(5)
   })
   it('未知 id 返回 null', () => {

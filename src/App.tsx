@@ -4,38 +4,43 @@ import { ScaleSelect } from './components/ScaleSelect'
 import { Quiz } from './components/Quiz'
 import { Result } from './components/Result'
 import { loadScaleById, SCALE_LIST } from './lib/loadScale'
+import { drawQuestions } from './lib/draw'
 import { score } from './lib/scoring'
 import type { Scale } from './data/schemas'
 
 type Phase = 'select' | 'quiz' | 'result'
 
+// 每维度答题量：classic/plus 题库均为每维度 32 题，抽 16 题（规格：总题数不变）
+const PER_DIM = 16
+
 export function App() {
   const [phase, setPhase] = useState<Phase>('select')
   const [scaleId, setScaleId] = useState<string | null>(null)
   const [answers, setAnswers] = useState<Record<string, 0 | 1>>({})
-
-  const scale: Scale | null = scaleId ? loadScaleById(scaleId) : null
+  // 本次抽取的试卷；选择量表/换量表时重新抽取
+  const [drawn, setDrawn] = useState<Scale | null>(null)
 
   const result = useMemo(
-    () => (scale && phase === 'result' ? score(scale, answers) : null),
-    [scale, answers, phase],
+    () => (drawn && phase === 'result' ? score(drawn, answers) : null),
+    [drawn, answers, phase],
   )
 
-  if (phase === 'select' || !scale) {
-    return (
-      <ScaleSelect
-        onSelect={(id) => {
-          setScaleId(id)
-          setAnswers({})
-          setPhase('quiz')
-        }}
-      />
-    )
+  const startScale = (id: string) => {
+    const s = loadScaleById(id)
+    if (!s) return
+    setScaleId(id)
+    setDrawn(drawQuestions(s, PER_DIM))
+    setAnswers({})
+    setPhase('quiz')
+  }
+
+  if (phase === 'select' || !drawn) {
+    return <ScaleSelect onSelect={startScale} />
   }
   if (phase === 'quiz') {
     return (
       <Quiz
-        scale={scale}
+        scale={drawn}
         answers={answers}
         onAnswer={(qid, oi) => setAnswers(a => ({ ...a, [qid]: oi }))}
         onComplete={() => setPhase('result')}
@@ -46,7 +51,7 @@ export function App() {
     return (
       <Result
         result={result}
-        scale={scale}
+        scale={drawn}
         onRetest={() => {
           setAnswers({})
           setPhase('select')
@@ -55,13 +60,12 @@ export function App() {
           // 切到量表列表中的下一套（循环），不依赖具体量表数量
           const ids = SCALE_LIST.map(s => s.id)
           const cur = ids.indexOf(scaleId ?? '')
-          setAnswers({})
-          setScaleId(ids[(cur + 1) % ids.length])
-          setPhase('quiz')
+          startScale(ids[(cur + 1) % ids.length])
         }}
       />
     )
   }
+  // 防御性兜底：TS 收窄下不可达（drawn 非空时 score 恒返回结果），保留以防状态异常白屏
   return (
     <main className="screen">
       <p>测试暂不可用，请稍后再试。</p>

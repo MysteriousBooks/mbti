@@ -14,6 +14,8 @@ export const ScaleSchema = z.object({
     id: z.string().min(1),
     text: z.string().min(1),
     dimensionId: z.string(),
+    // 两选项的顺序/文案允许位置偏置，由抽题时 50% 翻转中和；单独复用题库 JSON 时需自行处理。
+    // 两选项等权不在 schema 强制（抽题分层与两极平衡依赖它），由 dev 加载告警与 scale-balance 测试兜底
     options: z.tuple([
       z.object({ text: z.string().min(1), pole: z.string().min(1), weight: z.number().int().min(1).max(3) }),
       z.object({ text: z.string().min(1), pole: z.string().min(1), weight: z.number().int().min(1).max(3) }),
